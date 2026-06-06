@@ -27,11 +27,15 @@ Backend API untuk aplikasi CoffeeShop menggunakan FastAPI dan SQLAlchemy.
    ```powershell
    pip install fastapi uvicorn sqlalchemy pydantic
    ```
-3. Jalankan aplikasi:
+3. Isi data sample:
+    ```
+    python seed.py
+    ```
+4. Jalankan aplikasi:
    ```powershell
    uvicorn app.main:app --reload
    ```
-4. Akses dokumentasi interaktif di:
+5. Akses dokumentasi interaktif di:
    - `http://127.0.0.1:8000/docs`
    - `http://127.0.0.1:8000/redoc`
 
