@@ -1,4 +1,4 @@
-aiosqlite==0.22.1
+﻿aiosqlite==0.22.1
 alembic==1.18.4
 altair==6.1.0
 altgraph==0.17.4
