@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from typing import List, Optional
+from datetime import datetime
 
 class MenuCreate(BaseModel):
     name: str
@@ -11,6 +12,9 @@ class MenuUpdate(BaseModel):
     price: Optional[int] = None
     stock: Optional[int] = None
     
+class MenuStockUpdate(BaseModel):
+    stock: int
+
 class MenuResponse(BaseModel):
     id: int
     name: str
@@ -19,13 +23,26 @@ class MenuResponse(BaseModel):
     
     class Config:
         orm_mode = True
-        
-class MenuStockUpdate(BaseModel):
-    stock: int
-
-class SalesItem(BaseModel):
+class Item(BaseModel):
     menu_id: int
     qty: int
 
 class TransactionCreate(BaseModel):
-    items: List[SalesItem]
+    items: List[Item]
+
+class TransactionDetailResponse(BaseModel):
+    menu_id: int
+    qty: int
+    subtotal: int
+    
+    class Config:
+        orm_mode = True
+
+class TransactionResponse(BaseModel):
+    id: int
+    created_at: datetime
+    total_price: int
+    details: List[TransactionDetailResponse]
+    
+    class Config:
+        orm_mode = True
