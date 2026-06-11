@@ -9,7 +9,8 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-BASE_URL = "https://kjeww-coffeshop-api.vercel.app/api/v1"
+# BASE_URL = "https://kjeww-coffeshop-api.vercel.app/api/v1"
+BASE_URL = "http://127.0.0.1:8000/api/v1"
 
 def get_all_menus():
     try:

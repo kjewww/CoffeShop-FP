@@ -1,23 +1,7 @@
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, Enum
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from datetime import datetime
-import enum
-from app.database import Base
-
-class UserRole(str, enum.Enum):
-    admin = "admin"
-    kasir = "kasir"
-
-
-class User(Base):
-    __tablename__ = "users"
-
-    id = Column(Integer, primary_key=True, index=True)
-    username = Column(String, unique=True, index=True, nullable=False)
-    hashed_password = Column(String, nullable=False)
-    role = Column(Enum(UserRole), nullable=False, default=UserRole.kasir)
-    is_active = Column(Boolean, default=True)
-
+from backend.app.database import Base
 
 class Menu(Base):
     __tablename__ = "menus"
@@ -27,7 +11,6 @@ class Menu(Base):
     price = Column(Integer)
     stock = Column(Integer)
 
-
 class Transaction(Base):
     __tablename__ = "transactions"
     
@@ -36,7 +19,6 @@ class Transaction(Base):
     total_price = Column(Integer)
     
     details = relationship("TransactionDetail", back_populates="transaction")
-
 
 class TransactionDetail(Base):
     __tablename__ = "transaction_details"
