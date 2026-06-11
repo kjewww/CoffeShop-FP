@@ -22,7 +22,7 @@ class MenuResponse(BaseModel):
     stock: int
     
     class Config:
-        orm_mode = True
+        from_attributes = True
 class Item(BaseModel):
     menu_id: int
     qty: int
@@ -36,7 +36,7 @@ class TransactionDetailResponse(BaseModel):
     subtotal: int
     
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class TransactionResponse(BaseModel):
     id: int
@@ -45,4 +45,22 @@ class TransactionResponse(BaseModel):
     details: List[TransactionDetailResponse]
     
     class Config:
-        orm_mode = True
+        from_attributes = True
+
+class UserCreate(BaseModel):
+    username: str
+    password: str
+    role: str # "owner" atau "kasir"
+
+class UserResponse(BaseModel):
+    id: int
+    username: str
+    role: str
+    
+    class Config:
+        from_attributes = True
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+    role: str

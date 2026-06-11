@@ -19,3 +19,7 @@ def get_db():
         yield db
     finally:
         db.close()
+
+SECRET_KEY = "KOPI_SUSU_SUPER_RAHASIA_123" # Ganti dengan string acak apa saja
+ALGORITHM = "HS256"
+ACCESS_TOKEN_EXPIRE_MINUTES = 120 # Token hangus dalam 2 jam
