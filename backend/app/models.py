@@ -1,8 +1,23 @@
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime
+import enum
+
+from sqlalchemy import Column, Enum, Integer, String, Boolean, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from datetime import datetime
-from app.database import Base
+from backend.app.database import Base
 
+class UserRole(str, enum.Enum):
+    admin = "admin"
+    kasir = "kasir"
+
+
+class User(Base):
+    __tablename__ = "users"
+
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String, unique=True, index=True, nullable=False)
+    hashed_password = Column(String, nullable=False)
+    role = Column(Enum(UserRole), nullable=False, default=UserRole.kasir)
+    
 class Menu(Base):
     __tablename__ = "menus"
     

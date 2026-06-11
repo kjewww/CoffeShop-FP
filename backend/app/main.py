@@ -3,10 +3,10 @@ from typing import Optional
 
 from fastapi import Depends, FastAPI, HTTPException, Query
 from sqlalchemy import func
-from app.database import SessionLocal, engine, get_db, Session
-from app.schemas import MenuCreate, MenuResponse, MenuUpdate, MenuStockUpdate, TransactionCreate, Item, TransactionResponse
-from app.models import Menu, Transaction, TransactionDetail
-import app.models as models
+from backend.app.database import SessionLocal, engine, get_db, Session
+from backend.app.schemas import MenuCreate, MenuResponse, MenuUpdate, MenuStockUpdate, TransactionCreate, Item, TransactionResponse
+from backend.app.models import Menu, Transaction, TransactionDetail
+import backend.app.models as models
 
 app = FastAPI()
 models.Base.metadata.create_all(bind=engine)

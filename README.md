@@ -33,7 +33,7 @@ Backend API untuk aplikasi CoffeeShop menggunakan FastAPI dan SQLAlchemy.
     ```
 4. Jalankan aplikasi:
    ```powershell
-   uvicorn app.main:app --reload
+   uvicorn backend.app.main:app --reload
    ```
 5. Akses dokumentasi interaktif di:
    - `http://127.0.0.1:8000/docs`
