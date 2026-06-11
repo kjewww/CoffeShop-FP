@@ -1,6 +1,6 @@
 from datetime import datetime
-from backend.app.database import SessionLocal, engine, Base
-from backend.app.models import Menu, Transaction, TransactionDetail
+from app.database import SessionLocal, engine, Base
+from app.models import Menu, Transaction, TransactionDetail
 
 
 def create_tables():
